@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 
     <?php
     for($i=1;$i<=100;$i++){
@@ -6,7 +5,7 @@
             echo "<br><b>$i is Even Number</b>";
         }
         else{
-            echo "<br>$i is Odd Number";
+            echo "$i is Odd Number";
         }
     }
     ?>
