@@ -1,21 +1,19 @@
 <!-- Write a PHP program to print prime numbers between 1 and 50. -->
 <?php
-echo "Prime numbers between 1 and 50 are: ";
+echo"Prime number between 1 to 50 <br>";
 
-for ($num = 2; $num <= 50; $num++) {   
-    $isPrime = true;                 
+for($num=2;$num<=50;$num++){
+    $isPrime = true;
 
-    // check if number has any divisor
-    for ($i = 2; $i < $num; $i++) {
-        if ($num % $i == 0) {          
-            $isPrime = false;          
-            break;                     
+    for($i=2;$i<$num;$i++){
+        if($num%$i==0){
+            $isPrime = false;
+            break;
         }
-    }
-
-    //  print it
-    if ($isPrime) {
-        echo $num . " ";
+    } 
+        if($isPrime==true){
+        echo"$num ";
     }
 }
+ 
 ?>
