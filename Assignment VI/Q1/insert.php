@@ -1,51 +1,55 @@
 <?php
 include('db_conn.php');
 
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $name = $_POST['name'];
+if(isset($_POST['submit'])){
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
     $email = $_POST['email'];
-    $phone_no = $_POST['number'];
+    $age = $_POST['age'];
 
-    
-$sql_insert ="INSERT into record(name,email,phone)
-values('$name','$email','$phone_no')";
+    $sql = "INSERT into record(first_name,last_name,email,age)
+    values('$first_name', '$last_name' , '$email' , '$age' )";
 
-$result = mysqli_query($conn,$sql_insert);
+    $result = mysqli_query($conn,$sql);
 
-if($result){
-    echo "Data Inserted SuccessFully";
-    exit();
-}else
-    echo "Error while insertig";
-exit();
+    if($result){
+        echo "Data inserted Successfully";
+        exit();
+    }else {
+        echo"Something Error while Inserting Data";
+        exit();
+    }
+
 }
-
-
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insert</title>
-</head>
-<body>
-    
-    <form action="" method="POST">
-        Name : 
-        <input type="text" name="name" required > <br> 
+<div style="
+    background-color: #2c3e50;
+    padding: 12px 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+">
 
-        Email : 
-        <input type="email" name="email" required > <br>
+    <a href="insert.php" style="color: white; text-decoration: none; margin-right: 20px;">Insert</a>
+    <a href="display_record.php" style="color: white; text-decoration: none; margin-right: 20px;">Display Record</a>
+    <a href="insert.php" style="color: white; text-decoration: none;">Insert</a>
 
-        Phone No :
-        <input type="text" name="number" required>  <br>
+</div>
 
-        <input  type="submit" value="Submit" name="submit">
+<br><br><br>
 
-         
-    </form>
-</body>
-</html>
+<form action="" method="post">
+    FirstName : <br>
+    <input type="text" name="first_name"> <br><br>
+    LastName : <br>
+    <input type="text" name="last_name" id=""> <br><br>
+    Email :<br>
+    <input type="email" name="email" id=""> <br><br>
+    Age :<br>
+    <input type="number" name="age" id=""> <br><br>
+
+    <input type="submit" name="submit" value="Submit">
+
+</form>
